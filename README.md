@@ -71,7 +71,7 @@ Once you have installed `CMake`, install the required Python libraries:
 
 
 
-### Running the Tkinter GUI
+## Running the Tkinter GUI
 
 1. **Launch the GUI**:
    - Navigate to the project's directory.
@@ -91,7 +91,7 @@ Once you have installed `CMake`, install the required Python libraries:
    - **View Log**:
      - Access timestamps and registered names in the log
 
-### Running the Flask Application
+## Running the Flask Application
 
 1. **Launch the Flask Server**:
    - Navigate to the flask_app directory.
