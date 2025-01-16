@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Attendance Logs</h2>
+
+<!-- Filter Form -->
+<!--  
+<form method="POST" action="/filter" class="filter-form">
+    <label for="date">Filter by Date:</label>
+    <input type="date" id="date" name="date">
+    <button type="submit">Filter</button>
+</form>
+-->
+<!-- Filter Form -->
+<form method="POST" action="/filter" class="filter-form">
+    <label for="date">Filter by Date:</label>
+    <input type="date" id="date" name="date">
+
+    <label for="name">Filter by Name:</label>
+    <input type="text" id="name" name="name">
+
+    <button type="submit">Filter</button>
+</form>
+
+
+<!-- Logs Table -->
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Timestamp</th>
+            <th>Actions</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        {% for log in logs %}
+        <tr>
+            <td>{{ log.id }}</td>
+            <td>{{ log.name }}</td>
+            <td>{{ log.timestamp }}</td>
+            <td>
+                <!-- Delete button -->
+                <form method="POST" action="{{ url_for('delete_log', log_id=log.id) }}" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- Bulk Delete -->
+
+
+{% endblock %}

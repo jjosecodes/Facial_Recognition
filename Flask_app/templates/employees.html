@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Registered Faces</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Photo</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for employee in employees %}
+        <tr>
+            <td>{{ employee.id }}</td>
+            <td>{{ employee.name }}</td>
+            <td>
+                {% if employee.photo %}
+                <img src="{{ employee.photo }}" alt="Photo of {{ employee.name }}" width="50">
+                {% else %}
+                No Photo
+                {% endif %}
+            </td>
+            <td>
+                <!-- Delete button -->
+                <form method="POST" action="{{ url_for('delete_face', face_id=employee.id) }}">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

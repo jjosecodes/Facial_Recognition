@@ -1,0 +1,85 @@
+import os
+
+def file_management_system():
+    while True:
+        print("\nFile Management System")
+        print("1. Create File")
+        print("2. Read File")
+        print("3. Append to File")
+        print("4. Delete File")
+        print("5. Exit")
+        
+        choice = input("Enter your choice: ")
+        
+        if choice == "1":  # Create file
+            filename = input("Enter file name: ")
+            content = input("Enter content: ")
+            with open(filename, "w") as file:
+                file.write(content)
+            print(f"File '{filename}' created successfully.")
+        
+        elif choice == "2":  # Read file
+            filename = input("Enter file name to read: ")
+            if os.path.exists(filename):
+                with open(filename, "r") as file:
+                    print(file.read())
+            else:
+                print("File does not exist.")
+        
+        elif choice == "3":  # Append to file
+            filename = input("Enter file name to append: ")
+            if os.path.exists(filename):
+                content = input("Enter content to append: ")
+                with open(filename, "a") as file:
+                    file.write(content)
+                print(f"Content appended to '{filename}'.")
+            else:
+                print("File does not exist.")
+        
+        elif choice == "4":  # Delete file
+            filename = input("Enter file name to delete: ")
+            if os.path.exists(filename):
+                os.remove(filename)
+                print(f"File '{filename}' deleted successfully.")
+            else:
+                print("File does not exist.")
+        
+        elif choice == "5":  # Exit
+            print("Exiting File Management System.")
+            break
+        
+        else:
+            print("Invalid choice. Please try again.")
+
+# Run the system
+file_management_system()
+
+
+
+# factorial 
+def factorial(num):
+    if num < 0:
+        return "Factorial is not defined for negative numbers."
+    result = 1
+    for i in range(1, num + 1):
+        result *= i
+    return result
+
+# Test cases
+print(factorial(5))  # 120
+print(factorial(0))  # 1
+print(factorial(-3)) # Not defined
+
+# word count 
+
+def word_counter(sentence):
+    words = sentence.split() 
+    word_count = {}
+    for word in words:
+        word = word.lower()  
+        word_count[word] = word_count.get(word, 0) + 1  
+    return word_count
+
+# Test case
+sentence = "This is a test. This test is simple."
+print(word_counter(sentence)) 

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Attendance Dashboard</h2>
+
+<!-- Heatmap Container -->
+<div id="heatmap"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/cal-heatmap"></script>
+<script>
+    // Parse the heatmap data passed from Flask
+    const heatmapData = JSON.parse('{{ heatmap_data | tojson | safe }}');
+
+    // Transform the data for Cal-Heatmap
+    const parsedData = {};
+    for (const [date, count] of Object.entries(heatmapData)) {
+        // Convert dates to UNIX timestamps for Cal-Heatmap
+        const timestamp = new Date(date).getTime() / 1000;
+        parsedData[timestamp] = count;
+    }
+
+    // Render the heatmap
+    const cal = new CalHeatMap();
+    cal.init({
+        itemSelector: "#heatmap",
+        domain: "month",
+        subDomain: "day",
+        data: parsedData,
+        start: new Date(),
+        range: 1,
+        legend: [1, 5, 10, 20],
+        displayLegend: true,
+        tooltip: true,
+    });
+</script>
+
+{% endblock %}
