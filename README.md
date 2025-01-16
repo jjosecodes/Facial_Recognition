@@ -23,7 +23,7 @@ This project is a comprehensive system for face recognition and classification. 
 - Required Python libraries: `dlib`, `OpenCV`, `NumPy`, `SQLite`, `Flask`, `Tkinter`.
 - Ensure you have a camera connected (or access to live video for testing).
 
-#### Steps to install
+# Steps to install
 
 
 ### 1. Setting Up the Environment
