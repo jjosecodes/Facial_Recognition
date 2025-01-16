@@ -10,7 +10,7 @@ face_recognition_env/
 # Ignore compiled Python files
 __pycache__/
 *.pyc
-recognition/shape_predictor_68_face_landmarks_GTX.dat
+
 
 # Ignore large files
 recognition/shape_predictor_68_face_landmarks_GTX.dat
