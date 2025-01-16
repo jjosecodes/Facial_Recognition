@@ -8,6 +8,7 @@
         "imwrite",
         "linalg",
         "pady",
+        "Tkinter",
         "yscrollcommand"
     ]
 }
