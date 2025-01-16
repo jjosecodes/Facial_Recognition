@@ -29,22 +29,21 @@ class Face(db.Model):
 
 @app.route("/")
 def dashboard():
-    #keep comments
-    # Fetch attendance logs
+    
+
     logs = Attendance.query.order_by(Attendance.timestamp.desc()).all()
 
-    # Attendance summary grouped by name
+    
     summary = db.session.query(
         Attendance.name, db.func.count(Attendance.name)
     ).group_by(Attendance.name).all()
 
-    # Group attendance data by date for heatmap
     daily_summary = db.session.query(
-        db.func.date(Attendance.timestamp),  # Extract only the date
-        db.func.count(Attendance.id)         # Count the number of records for each date
+        db.func.date(Attendance.timestamp),  
+        db.func.count(Attendance.id)         #
     ).group_by(db.func.date(Attendance.timestamp)).all()
 
-    # Format data for heatmap (convert to dictionary)
+    
     heatmap_data = {str(date): count for date, count in daily_summary}
 
     return render_template("dashboard.html", logs=logs, summary=summary, heatmap_data=heatmap_data)
