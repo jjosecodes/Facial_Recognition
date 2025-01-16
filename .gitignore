@@ -1,0 +1,22 @@
+# Ignore virtual environments
+venv/
+env/
+face_recognition_env/
+
+# Ignore large model/data files
+*.dat
+*.pyd
+
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+recognition/shape_predictor_68_face_landmarks_GTX.dat
+
+# Ignore large files
+recognition/shape_predictor_68_face_landmarks_GTX.dat
+face_rec_env/Lib/site-packages/cv2/cv2.pyd
+face_recognition_env/Lib/site-packages/cv2/cv2.pyd
+
+# Ignore environment folders
+face_rec_env/
+face_recognition_env/
