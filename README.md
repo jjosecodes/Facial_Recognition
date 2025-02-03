@@ -33,13 +33,29 @@ Clone or Download the Project:
 git clone <repository-url>
 cd <repository_name>
 ```
+It’s best to use a virtual environment to avoid conflicts with system packages.
 
-
+run
+```bash
+cd recognition 
+python -m venv venv
+```
+then
+for windows
+```bash
+venv\Scripts\Activate
+```
+for mac.linux 
+```bash
+source venv/bin/activate
+```
 ### 2. Install CMake
 
 Download and install `cmake` based on your platform:
 
 - **Windows**:
+- option 1 ->   pip install cmake 
+- option 2 
   - Download the installer from [cmake.org](https://cmake.org/download/).
   - During installation, select the option to add CMake to the system PATH for all users.
 
@@ -62,6 +78,7 @@ Download and install `cmake` based on your platform:
 Once you have installed `CMake`, install the required Python libraries:
 
 - Open a terminal or command prompt.
+- make sure you are in the recognition folder
 - Run the following command to install the necessary libraries:
   ```bash
   pip install -r requirements.txt
